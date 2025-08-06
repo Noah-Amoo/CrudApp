@@ -79,4 +79,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
   },
+  addButtonText: {
+    fontSize: 18,
+    color: 'black',
+  }
 })
