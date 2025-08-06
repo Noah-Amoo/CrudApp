@@ -37,7 +37,7 @@ export default function Index() {
           placeholder="Add a new todo"
           placeholderTextColor="gray"
           value= {text}
-          onChange={setText}
+          onChangeText={setText}
         />
         <Pressable onPress={addTodo} style={styles.addButton}>
           <Text style={styles.addButtonText}>Add</Text>
@@ -62,5 +62,16 @@ const styles = StyleSheet.create({
     maxWidth: 1024,
     marginHorizontal: 'auto',
     pointerEvents: 'auto',
+  },
+  input: {
+    flex: 1,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 10,
+    marginRight: 10,
+    fontSize: 18,
+    minWidth: 0,
+    color: 'white'
   }
 })
