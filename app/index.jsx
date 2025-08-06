@@ -1,4 +1,4 @@
-import { Text, View, TextInput, Pressable } from "react-native";
+import { Text, View, TextInput, Pressable, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 
@@ -46,3 +46,11 @@ export default function Index() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: '100%',
+    backgroundColor: 'black',
+  },
+})
