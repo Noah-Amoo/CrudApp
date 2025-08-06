@@ -53,4 +53,14 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'black',
   },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 10,
+    padding: 10,
+    width: '100%',
+    maxWidth: 1024,
+    marginHorizontal: 'auto',
+    pointerEvents: 'auto',
+  }
 })
