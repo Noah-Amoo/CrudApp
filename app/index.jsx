@@ -8,12 +8,20 @@ export default function Index() {
   const [todos, setTodos] = useState(data.sort((a,b) => b.id - a.id))
   const [text, setText] = useState('')
 
+  // CREATE
   const addTodo = () => {
     if (text.trim()) {
       const newId = todos.length > 0 ? todos[0].id + 1 : 1;
       setTodos([{ id: newId, title: text, completed: false, ...todos}])
       setText('')
     } 
+  }
+
+  // UPDATE
+  const toggleTodo = (id) => {
+    setTodos(todos.map(todo =>
+      todo.id === id ? { ...todo, completed: !todo.completed} : todo
+    ))
   }
 
   return (
