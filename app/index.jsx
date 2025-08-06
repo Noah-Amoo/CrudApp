@@ -24,6 +24,11 @@ export default function Index() {
     ))
   }
 
+  // DELETE
+  const removeTodo = (id => {
+    setTodos(todos.filter(todo => todo.id !== id))
+  })
+
   return (
     <SafeAreaView>
       <View>
