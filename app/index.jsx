@@ -1,6 +1,7 @@
-import { Text, View, TextInput, Pressable, StyleSheet } from "react-native";
+import { Text, View, TextInput, Pressable, StyleSheet, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import { data } from '@/data/todos'
 
@@ -29,6 +30,15 @@ export default function Index() {
     setTodos(todos.filter(todo => todo.id !== id))
   })
 
+  const renderItem = ({ item }) => (
+    <View>
+      <Text>{item.title}</Text>
+      <Pressable>
+        <MaterialCommunityIcons name="delete-circle" size={36} color="red" selectable={undefined} />
+      </Pressable>
+    </View>
+  )
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.inputContainer}>
@@ -43,6 +53,12 @@ export default function Index() {
           <Text style={styles.addButtonText}>Add</Text>
         </Pressable>
       </View>
+      <FlatList
+        data={todos}
+        keyExtractor={todo => todo.id}
+        contentContainerStyle = {{ flexGrow: 1 }}
+        renderItem={{}}
+      />
     </SafeAreaView>
   );
 }
