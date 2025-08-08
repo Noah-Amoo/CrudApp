@@ -119,5 +119,9 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 18,
     color: 'white'
+  },
+  completedText: {
+    textDecorationLine: 'line-through',
+    color: 'gray',
   }
 })
