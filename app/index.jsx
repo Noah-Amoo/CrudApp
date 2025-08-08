@@ -60,7 +60,7 @@ export default function Index() {
         data={todos}
         keyExtractor={todo => todo.id}
         contentContainerStyle = {{ flexGrow: 1 }}
-        renderItem={{}}
+        renderItem={renderItem}
       />
     </SafeAreaView>
   );
@@ -101,5 +101,18 @@ const styles = StyleSheet.create({
   addButtonText: {
     fontSize: 18,
     color: 'black',
+  },
+  todoItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 4,
+    padding: 10,
+    borderBottomColor: 'gray',
+    borderBottomWidth: 1,
+    width: '100%',
+    maxWidth: 1024,
+    marginHorizontal: 'auto',
+    pointerEvents: 'auto'
   }
 })
