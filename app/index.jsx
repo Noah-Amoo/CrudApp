@@ -114,5 +114,10 @@ const styles = StyleSheet.create({
     maxWidth: 1024,
     marginHorizontal: 'auto',
     pointerEvents: 'auto'
+  },
+  todoText: {
+    flex: 1,
+    fontSize: 18,
+    color: 'white'
   }
 })
