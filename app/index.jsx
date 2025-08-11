@@ -3,7 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useState } from "react";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
-import { Inter_500Medium, inter_500Medium, useFonts } from  '@expo-google-fonts/inter';
+import { Inter_500Medium, useFonts } from  '@expo-google-fonts/inter';
 
 import { data } from '@/data/todos'
 
