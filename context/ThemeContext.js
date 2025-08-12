@@ -4,7 +4,7 @@ import { Colors } from '@/constants/Colors';
 
 export const ThemeContext = createContext({})
 
-export const ThemeProvider = ({ Children }) => {
+export const ThemeProvider = ({ children }) => {
     const [colorScheme, setColorScheme] = useState(Appearance.getColorScheme())
 
     const theme = colorScheme === 'dark'
@@ -15,7 +15,7 @@ export const ThemeProvider = ({ Children }) => {
         <ThemeContext.Provider value={{
             colorScheme, setColorScheme, theme
         }}>
-            {Children}
+            {children}
         </ThemeContext.Provider>
     )
 }

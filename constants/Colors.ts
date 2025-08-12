@@ -1,13 +1,13 @@
 export const Colors = {
     light: {
+        background: 'white',
         text: 'black',
-        backkground: 'white',
         icon: 'black',
         button: 'royalblue',
     },
     dark: {
+        background: 'black',
         text: 'white',
-        backkground: 'black',
         icon: 'red',
         button: 'white',
     },
