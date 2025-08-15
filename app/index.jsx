@@ -42,7 +42,19 @@ export default function Index() {
     fetchData()
   }, [data])
 
-  
+  //This useEffect saves data
+  useEffect((() => {
+    const storeData = async () => {
+      try {
+        const jsonValue = JSON.stringify(todos)
+        await AsyncStorage.setItem("TodoApp", jsonValue)
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    storeData()
+  }), [todos])
 
   if (!loaded && !error) {
     return null
