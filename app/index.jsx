@@ -1,18 +1,19 @@
 import { Text, View, TextInput, Pressable, StyleSheet, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import { Inter_500Medium, useFonts } from '@expo-google-fonts/inter';
 import Animamated, { LinearTransition } from 'react-native-reanimated'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 import Octicons from '@expo/vector-icons/Octicons'
 
 import { data } from '@/data/todos'
 
 export default function Index() {
-  const [todos, setTodos] = useState(data.sort((a, b) => b.id - a.id))
+  const [todos, setTodos] = useState([])
   const [text, setText] = useState('')
 
   const { colorScheme, setColorScheme, theme } = useContext(ThemeContext)
@@ -20,6 +21,28 @@ export default function Index() {
   const [loaded, error] = useFonts({
     Inter_500Medium,
   })
+
+  // This useEffect is used to load or retrieve data
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const jsonValue = await AsyncStorage.getItem("TodoApp")
+        const storageTodos = jsonValue != null ? JSON.parse(jsonValue) : null
+
+        if (storageTodos && storageTodos.length) {
+          setTodos(storageTodos.sort((a, b) => b.id - a.id))
+        } else {
+          setTodos(data.sort((a,b) => b.id - a.id))
+        }
+      } catch (e) {
+        console.error(e)
+      }
+    }
+
+    fetchData()
+  }, [data])
+
+  
 
   if (!loaded && !error) {
     return null
