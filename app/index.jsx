@@ -5,6 +5,7 @@ import { ThemeContext } from "@/context/ThemeContext";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import { Inter_500Medium, useFonts } from '@expo-google-fonts/inter';
+import Animamated, { LinearTransition } from 'react-native-reanimated'
 
 import Octicons from '@expo/vector-icons/Octicons'
 
@@ -82,11 +83,13 @@ export default function Index() {
           }
         </Pressable>
       </View>
-      <FlatList
+      <Animamated.FlatList
         data={todos}
         keyExtractor={todo => todo.id}
         contentContainerStyle={{ flexGrow: 1 }}
         renderItem={renderItem}
+        itemLayoutAnimation={LinearTransition}
+        keyboardDismissMode='on-drag'
       />
     </SafeAreaView>
   );
