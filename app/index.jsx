@@ -7,6 +7,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Inter_500Medium, useFonts } from '@expo-google-fonts/inter';
 import Animamated, { LinearTransition } from 'react-native-reanimated'
 import AsyncStorage from '@react-native-async-storage/async-storage'
+import { StatusBar } from 'expo-status-bar'
 
 import Octicons from '@expo/vector-icons/Octicons'
 
@@ -126,6 +127,8 @@ export default function Index() {
         itemLayoutAnimation={LinearTransition}
         keyboardDismissMode='on-drag'
       />
+
+      <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
     </SafeAreaView>
   );
 }
