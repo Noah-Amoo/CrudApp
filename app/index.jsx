@@ -5,12 +5,12 @@ import { ThemeContext } from "@/context/ThemeContext";
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 import { Inter_500Medium, useFonts } from '@expo-google-fonts/inter';
-import Animamated, { LinearTransition } from 'react-native-reanimated'
+import Animated, { LinearTransition } from 'react-native-reanimated'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import { StatusBar } from 'expo-status-bar'
 import { useRouter } from "expo-router";
 
-import Octicons from '@expo/vector-icons/Octicons'
+import { Octicons } from '@expo/vector-icons'
 
 import { data } from '@/data/todos'
 
@@ -130,7 +130,7 @@ export default function Index() {
           }
         </Pressable>
       </View>
-      <Animamated.FlatList
+      <Animated.FlatList
         data={todos}
         keyExtractor={todo => todo.id}
         contentContainerStyle={{ flexGrow: 1 }}
