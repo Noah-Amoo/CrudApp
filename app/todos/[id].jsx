@@ -43,6 +43,30 @@ export default function EditScreen() {
         return null
     }
 
+    // Function to update or save the current version of the edited todo
+    const handleSave = async () => {
+        try {
+            const savedTodo = { ...todo, title: todo.title }
+
+            const jsonValue = await AsyncStorage.getItem('TodoApp')
+            const storageTodos = jsonValue != null ? JSON.parse(jsonValue) : null
+
+            if (storageTodos && storageTodos.length) {
+                const otherTodos = storageTodos.filter(todo => todo.id !== savedTodo.id)
+                const allTodos = [...otherTodos, savedTodo]
+
+                await AsyncStorage.setItem('TodoApp', JSON.stringify(allTodos))
+            } else {
+                await AsyncStorage.setItem('TodoApp', JSON.stringify([savedTodo]))
+            }
+
+            // Takes us back to the homepage after editing the todo or saving for the first time
+            router.push('/')
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
     return (
         <View>
             <Text>{ id }</Text>
