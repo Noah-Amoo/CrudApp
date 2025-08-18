@@ -1,4 +1,4 @@
-import { Text, View, TextInput, Pressable, StyleSheet, FlatList } from "react-native";
+import { Text, View, TextInput, Pressable, StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useState, useContext, useEffect } from "react";
 import { ThemeContext } from "@/context/ThemeContext";
@@ -41,7 +41,7 @@ export default function Index() {
     }
 
     fetchData()
-  }, [data])
+  }, [])
 
   //This useEffect saves data
   useEffect((() => {
